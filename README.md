@@ -81,12 +81,12 @@ Em seguida, execute o seguinte comando na linha de comando para criar um arquivo
 sudo vim /etc/apache2/conf-enabled/nextcloud.conf
 ```
 Depois disso, adicione o seguinte conteúdo ao arquivo:
-```conf
+```bash
 <VirtualHost *:80>
      ServerAdmin admin@example.com
      DocumentRoot /srv/nextcloud/
      ServerName example.com
-     ServerAlias ​​www.example.com
+     ServerAlias www.example.com
      ErrorLog /var/log/apache2/nextcloud-error.log
      CustomLog /var/log/apache2/nextcloud-access.log combinado
  

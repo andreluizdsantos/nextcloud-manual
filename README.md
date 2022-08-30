@@ -126,4 +126,4 @@ Quando a instalação estiver concluída, veremos a seguinte janela. Clique na s
 # Conclusão
 Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.
 
-Fonte [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)
+Fonte: [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)

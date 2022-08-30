@@ -157,7 +157,7 @@ array (
 );
 ```
 ## 8 Depois de acessar e configurar o Nextcloud é necessário proteger e configurar nosso "servidor mariadb".
-No terminal, esses comandos iniciarão as configurações e o script fará algumas perguntas, você pode responder "sim" a todas as perguntas e também criar um novo usuário raiz do banco de dados:
+No terminal, esses comandos iniciarão as configurações e o script fará algumas perguntas, você pode responder "sim" "Y" a todas as perguntas e também criar um novo usuário raiz do banco de dados:
 ```bash
 sudo mysql_secure_installation
 Enter current password for root (enter se não tiver):    pressione Enter

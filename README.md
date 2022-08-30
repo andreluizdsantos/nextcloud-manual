@@ -7,7 +7,7 @@
 - Passo 5 – Habilite o modo ReWrite e reinicie o servidor
 - Etapa 6 – Concluir a instalação do Nextcloud via GUI
 
-# Passo 1 – Instale o PHP e o Apache Web Server
+## Passo 1 – Instale o PHP e o Apache Web Server
 
 Antes de começar atualize o sistema.
 ```bash
@@ -35,7 +35,7 @@ E reinicie o servidor web apache usando o seguinte comando:
 ```bash
 sudo systemctl reiniciar apache2
 ```
-# Passo 2 – Instale o servidor de banco de dados MySQL / MariaDB
+## Passo 2 – Instale o servidor de banco de dados MySQL / MariaDB
 Em seguida, execute o seguinte comando para instalar o servidor de banco de dados MariaDB ou MySQL:
 ```bash
 sudo apt -y install mariadb-server
@@ -56,7 +56,7 @@ FLUSH PRIVILEGES;
 Quit;
 ```
 Não se esqueça de substituir *SenhaForte123@* pela senha de usuário do banco de dados.
-# Passo 3 – Baixe e instale o Nextcloud
+## Passo 3 – Baixe e instale o Nextcloud
 Execute os seguintes comandos para baixar e instalar o Nextcloud no linux ubuntu:
 ```bash
 sudo apt install -y wget unzip
@@ -75,7 +75,7 @@ Usando o seguinte comando para alterar as permissões de diretório para o  www-
 ```bash
 sudo chown -R www-data:www-data /srv/nextcloud/
 ```
-# Etapa 4 – Configurar o Apache para servir o Nextcloud
+## Etapa 4 – Configurar o Apache para servir o Nextcloud
 Em seguida, execute o seguinte comando na linha de comando para criar um arquivo VirtualHost para Nextcloud
 ```bash
 sudo vim /etc/apache2/conf-enabled/nextcloud.conf
@@ -102,14 +102,14 @@ Depois disso, adicione o seguinte conteúdo ao arquivo:
     </Directory>
 </VirtualHost>
 ```
-# Passo 5 – Habilite o modo ReWrite e reinicie o servidor
+## Passo 5 – Habilite o modo ReWrite e reinicie o servidor
 Usando o seguinte comando para habilitar os módulos Apache necessários e reiniciar o serviço:
 ```bash
 sudo a2enmod rewrite dir mime env headers
 
 sudo systemctl restart apache2
 ```
-# Etapa 6 – Concluir a instalação do Nextcloud via GUI
+## Etapa 6 – Concluir a instalação do Nextcloud via GUI
 Abra seu navegador e aponte para o seguinte endereço:
 ```HTML
 http://IP_DO_SERVIDOR/nextcloud/ 
@@ -122,7 +122,7 @@ Em seguida, preencha os detalhes da conexão do banco de dados e clique em **Con
 
 Assistente de configuração do Nextcloud
 Quando a instalação estiver concluída, veremos a seguinte janela. Clique na seta para a frente que aparecerá no lado direito da janela azul para prosseguir e siga as instruções.
-# Etapa 7 - Ajustar configurações
+## Etapa 7 - Ajustar configurações
 Revisar arquivo config.php
 ```bash
 sudo vim /srv/nextcloud/config/config.php
@@ -156,8 +156,37 @@ array (
   'default_phone_region' => 'BR', # Define Região padrão Brasil
 );
 ```
+## 8 Depois de acessar e configurar o Nextcloud é necessário proteger e configurar nosso "servidor mariadb".
+No terminal, esses comandos iniciarão as configurações e o script fará algumas perguntas, você pode responder "sim" a todas as perguntas e também criar um novo usuário raiz do banco de dados:
+```bash
+sudo mysql_secure_installation
+Enter current password for root (enter se não tiver):    pressione Enter
+Set root password? [Y/n]: Y
+New password:   # Digite a senha (Esta é a senha de root do banco MariaDB esta PRECISA ser diferente da senha root do sistema)
+Re-enter new password: # Repita a senha
+Remove anonymous users? [Y/n]: Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n]: Y
+Reload privilege tables now? [Y/n]: Y   
+```
+Reinicie o MariaDB
+```bash
+sudo systemctl restart mariadb.service
+```
+## Outros ajustes pós instalação
+Alterar o arquivo nextcloud.conf comentando o Alias para remover alerta de __Host-Prefix
+```bash
+sudo vim /etc/apache2/sites-available/nextcloud.conf
+```
+```bash
+#Alias /nextcloud "/var/www/nextcloud/"
+```
+Removendo alguns alertas da informação da instalação
+```bash
+apt install -y libmagickcore-6.q16-6-extra imagemagick
+```
 
-# Conclusão
+## Conclusão
 Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.
 
 Fonte: [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)

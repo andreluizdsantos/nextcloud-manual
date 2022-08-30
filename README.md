@@ -18,7 +18,7 @@ sudo reboot
 ```
 Execute o seguinte comando para instalar o servidor web Apache e PHP:
 ```bash
-sudo apt install -y php-cli php-fpm php-json php-intl php-imagick php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath apache2 libapache2- mod-php
+sudo apt install -y php-cli php-fpm php-json php-intl php-imagick php-pdo    php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath    apache2 libapache2- mod-php
 ```
 Quando a instalação dos pacotes estiver concluída, defina as variáveis do **PHP** usando o seguinte comando:
 ```bash

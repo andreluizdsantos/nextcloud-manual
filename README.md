@@ -43,10 +43,6 @@ Em seguida, execute o seguinte comando para instalar o servidor de banco de dado
 ```bash
 sudo apt -y install mariadb-server
 ```
-Proteja o servidor de banco de dados MariaDB usando o seguinte comando:
-```bash
-sudo mysql_secure_installation
-```
 Em seguida, execute o seguinte comando para criar o banco de dados:
 ```bash
 sudo mysql -u root -p

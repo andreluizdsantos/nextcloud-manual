@@ -88,17 +88,42 @@ Depois disso, adicione o seguinte conteúdo ao arquivo:
      ServerName example.com
      ServerAlias www.example.com
      ErrorLog /var/log/apache2/nextcloud-error.log
-     CustomLog /var/log/apache2/nextcloud-access.log combinado
+     CustomLog /var/log/apache2/nextcloud-access.log combined
  
-    <Diretório /srv/nextcloud/>
-	Opções + SeguirSymlinks
-	Permitir substituir tudo
-        Exigir todos os concedidos
+    <Directory /srv/nextcloud/>
+	Options +FollowSymlinks
+	AllowOverride All
+        Require all granted
  	SetEnv HOME /srv/nextcloud
  	SetEnv HTTP_HOME /srv/nextcloud
  	<IfModule mod_dav.c>
-  	  Davi desligado
+  	  Dav off
         </IfModule>
-    </Diretório>
+    </Directory>
 </VirtualHost>
 ```
+# Passo 5 – Habilite o modo ReWrite e reinicie o servidor
+Usando o seguinte comando para habilitar os módulos Apache necessários e reiniciar o serviço:
+```bash
+sudo a2enmod rewrite dir mime env headers
+
+sudo systemctl restart apache2
+```
+# Etapa 6 – Concluir a instalação do Nextcloud via GUI
+Abra seu navegador e aponte para o seguinte endereço:
+```HTML
+http://IP_DO_SERVIDOR/nextcloud/ 
+ou
+http://ENDEREÇO_DO_SERVIDOR/nextcloud/
+```
+Depois que o assistente de instalação for carregado, crie uma conta de usuário administrador do nextcloud. Digite o nome de usuário e senha. Além disso, clique no  link **Armazenamento e Banco de Dados** para acessar opções de configuração de instalação adicionais para o diretório de dados e banco de dados do Nextcloud.
+
+Em seguida, preencha os detalhes da conexão do banco de dados e clique em **Concluir configuração**.
+
+Assistente de configuração do Nextcloud
+Quando a instalação estiver concluída, veremos a seguinte janela. Clique na seta para a frente que aparecerá no lado direito da janela azul para prosseguir e siga as instruções.
+
+# Conclusão
+Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.
+
+Fonte [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)

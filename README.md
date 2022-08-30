@@ -7,8 +7,8 @@
 - Passo 5 – Habilite o modo ReWrite e reinicie o servidor
 - Etapa 6 – Concluir a instalação do Nextcloud via GUI
 - Etapa 7 - Ajustar configurações config.php
-- Etapa 8 Proteger e configurar "servidor mariadb".
-- Etapa 9 Outros ajustes pós instalação
+- Etapa 8 - Proteger e configurar "servidor mariadb".
+- Etapa 9 - Outros ajustes pós instalação
 
 ## Passo 1 – Instale o PHP e o Apache Web Server
 
@@ -159,7 +159,7 @@ array (
   'default_phone_region' => 'BR', # Define Região padrão Brasil
 );
 ```
-## Etapa 8 Depois de acessar e configurar o Nextcloud é necessário proteger e configurar nosso "servidor mariadb".
+## Etapa 8 - Depois de acessar e configurar o Nextcloud é necessário proteger e configurar nosso "servidor mariadb".
 No terminal, esses comandos iniciarão as configurações e o script fará algumas perguntas, você pode responder "sim" "Y" a todas as perguntas e também criar um novo usuário raiz do banco de dados:
 ```bash
 sudo mysql_secure_installation
@@ -176,7 +176,7 @@ Reinicie o MariaDB
 ```bash
 sudo systemctl restart mariadb.service
 ```
-## Etapa 9 Outros ajustes pós instalação
+## Etapa 9 - Outros ajustes pós instalação
 Alterar o arquivo nextcloud.conf comentando o Alias para remover alerta de __Host-Prefix
 ```bash
 sudo vim /etc/apache2/sites-available/nextcloud.conf

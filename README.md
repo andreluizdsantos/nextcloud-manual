@@ -129,15 +129,15 @@ sudo vim /srv/nextcloud/config/config.php
 ```php
 <?php
 $CONFIG = array (
-  'instanceid' => “xxxx”, # Aqui você verá uma ID unica
-  'passwordsalt' => “xxxxx”, # Aqui verá a senha
-  'secret' => “xxxxxx”, # Aqui verá a senha
+  'instanceid' => “xxxxxxxxxxxxxxxx”, # Aqui você verá uma ID unica
+  'passwordsalt' => “xxxxxxxxxxxxxxx”,
+  'secret' => “xxxxxxxxxxxxxxxxxxxxxx”,
   'trusted_domains' =>
 array (
     0 => 'localhost',
     1 => 'exemplo.com', # - confira o domínio aqui
   ),
-  'datadirectory' => '/home/nextclouddata', # Confira o caminho da pasta DATA aqui (se você trocou no passo 4.1)
+  'datadirectory' => '/home/nextclouddata', # Confira o caminho da pasta DATA aqui (se você trocou)
   'dbtype' => 'mysql',
   'version' => 'XX.X.X.XX', # Versão do Nextcloud
   'overwrite.cli.url' => 'http://exemplo.com/', # confira o domínio aqui
@@ -189,3 +189,5 @@ apt install -y libmagickcore-6.q16-6-extra imagemagick
 Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.
 
 Fonte: [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)
+
+[Nextcloud](https://github.com/docker-library/docs/blob/master/nextcloud/README.md)

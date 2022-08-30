@@ -1,4 +1,4 @@
-# Instalação Manual Nextcloud + Ubuntu 22.04
+# Instalação Manual Nextcloud no Ubuntu 22.04
 
 - Passo 1 – Instale o PHP e o Apache Web Server
 - Passo 2 – Instale o servidor de banco de dados MySQL / MariaDB

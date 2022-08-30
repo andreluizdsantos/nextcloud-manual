@@ -68,6 +68,7 @@ unzip latest.zip
 ```
 Mova a pasta resultante para /srv
 ```bash
+sudo mkdir /srv
 sudo mv nextcloud/ /srv
 ```
 Usando o seguinte comando para alterar as permissões de diretório para o  www-datausuário:
@@ -121,6 +122,40 @@ Em seguida, preencha os detalhes da conexão do banco de dados e clique em **Con
 
 Assistente de configuração do Nextcloud
 Quando a instalação estiver concluída, veremos a seguinte janela. Clique na seta para a frente que aparecerá no lado direito da janela azul para prosseguir e siga as instruções.
+# Etapa 7 - Ajustar configurações
+Revisar arquivo config.php
+```bash
+sudo vim /srv/nextcloud/config/config.php
+```
+```php
+<?php
+$CONFIG = array (
+  'instanceid' => “xxxx”, # Aqui você verá uma ID unica
+  'passwordsalt' => “xxxxx”, # Aqui verá a senha
+  'secret' => “xxxxxx”, # Aqui verá a senha
+  'trusted_domains' =>
+array (
+    0 => 'localhost',
+    1 => 'exemplo.com', # - confira o domínio aqui
+  ),
+  'datadirectory' => '/home/nextclouddata', # Confira o caminho da pasta DATA aqui (se você trocou no passo 4.1)
+  'dbtype' => 'mysql',
+  'version' => 'XX.X.X.XX', # Versão do Nextcloud
+  'overwrite.cli.url' => 'http://exemplo.com/', # confira o domínio aqui
+  'dbname' => 'DBnextcloud',
+  'dbhost' => 'localhost',
+  'dbport' => '',
+  'dbtableprefix' => 'oc_',
+  'mysql.utf8mb4' => true, # Suporte a acentuação
+  'dbuser' => 'DBusername', # usuário nextcloud
+  'dbpassword' => 'DBpassword', # senha padrão
+  'installed' => true,
+  'overwriteprotocol' =>'https', # nextcloud precisa de uma conexão segura (= https) para usar __Host-cookies.
+  'default_locale' => 'pt_BR', # Define Local padrão Brasil
+  'default_language' => 'pt_BR', # Define Linguagem padrão Brasil
+  'default_phone_region' => 'BR', # Define Região padrão Brasil
+);
+```
 
 # Conclusão
 Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.

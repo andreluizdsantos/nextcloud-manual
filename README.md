@@ -188,19 +188,20 @@ apt install -y libmagickcore-6.q16-6-extra imagemagick
 Agendamento do cron no Nexcloud por Systemd
 Copiando os arquivos nextcloudcron.service nextcloudcron.timer que estão dentro do diretório Agendamento para /etc/systemd/system/ e então execute:
 
-(Ativar o serviço no boot do sistema)
+Ative o serviço no boot do sistema
 ```bash
 systemctl enable nextcloudcron.timer
 ```
-(Iniciar o serviço já!)
+Inicie o serviço agora
 ```bash
 systemctl start nextcloudcron.timer
 ```
-(Verificar o status do serviço)
+Verifique o status do serviço
 ```bash
 systemctl status nextcloudcron.timer
 ```
-No arquivo nextcloudcron.timer a variável (OnUnitActiveSec=3min) está setada para atualizar o cron no NextCloud a cada 3 minutos, o valor padrão é 5 minutos. Altere para o valor que desejar.
+No arquivo nextcloudcron.timer a variável "OnUnitActiveSec=3min" está setada para atualizar a cron no NextCloud a cada 3 minutos, o valor padrão é 5 minutos.
+Altere para o valor que desejar.
 
 ## Conclusão
 Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Linux ubuntu 22.04.

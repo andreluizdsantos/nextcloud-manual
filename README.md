@@ -18,7 +18,7 @@ sudo reboot
 ```
 Execute o seguinte comando para instalar o servidor web Apache e PHP:
 ```bash
-sudo apt install -y php-cli php-fpm php-json php-intl php-imagick php-pdo    php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath    apache2 libapache2- mod-php
+sudo apt install -y php-cli php-fpm php-json php-intl php-imagick php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath apache2 libapache2- mod-php php-gmp
 ```
 Quando a instalação dos pacotes estiver concluída, defina as variáveis do **PHP** usando o seguinte comando:
 ```bash
@@ -55,4 +55,50 @@ CREATE USER 'administrador'@'localhost' IDENTIFIED BY 'SenhaForte123@';
 GRANT ALL PRIVILEGES ON nextcloud.* TO 'administrador'@'localhost';
 FLUSH PRIVILEGES;
 Quit;
+```
+Não se esqueça de substituir *SenhaForte123@* pela senha de usuário do banco de dados.
+# Passo 3 – Baixe e instale o Nextcloud
+Execute os seguintes comandos para baixar e instalar o Nextcloud no linux ubuntu:
+```bash
+sudo apt install -y wget unzip
+wget https://download.nextcloud.com/server/releases/latest.zip
+```
+Depois que o arquivo for baixado, extraia-o usando o seguinte comando:
+```bash
+unzip latest.zip
+```
+Mova a pasta resultante para /srv
+```bash
+sudo mv nextcloud/ /srv
+```
+Usando o seguinte comando para alterar as permissões de diretório para o  www-datausuário:
+```bash
+sudo chown -R www-data:www-data /srv/nextcloud/
+```
+# Etapa 4 – Configurar o Apache para servir o Nextcloud
+Em seguida, execute o seguinte comando na linha de comando para criar um arquivo VirtualHost para Nextcloud
+```bash
+sudo vim /etc/apache2/conf-enabled/nextcloud.conf
+```
+Depois disso, adicione o seguinte conteúdo ao arquivo:
+```conf
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /srv/nextcloud/
+     ServerName example.com
+     ServerAlias ​​www.example.com
+     ErrorLog /var/log/apache2/nextcloud-error.log
+     CustomLog /var/log/apache2/nextcloud-access.log combinado
+ 
+    <Diretório /srv/nextcloud/>
+	Opções + SeguirSymlinks
+	Permitir substituir tudo
+        Exigir todos os concedidos
+ 	SetEnv HOME /srv/nextcloud
+ 	SetEnv HTTP_HOME /srv/nextcloud
+ 	<IfModule mod_dav.c>
+  	  Davi desligado
+        </IfModule>
+    </Diretório>
+</VirtualHost>
 ```

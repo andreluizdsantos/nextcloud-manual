@@ -208,4 +208,7 @@ Através deste tutorial, aprendemos como instalar e configurar o Nextcloud no Li
 
 Fonte: [Tutsmake - Como instalar Nextcloud no Ubuntu 22.04](https://www.tutsmake.com/how-to-install-nextcloud-on-ubuntu-22-04/)
 
+## Links Úteis:
 [Nextcloud](https://github.com/docker-library/docs/blob/master/nextcloud/README.md)
+
+[Cron Job: Guia Completo para Iniciantes 2022](https://www.hostinger.com.br/tutoriais/cron-job-guia?ppc_campaign=google_performance_max&gclid=CjwKCAjwvNaYBhA3EiwACgndgjZjqw8gDzyEJEmfVtMt1u8JxGOMzFZFbKTfb5TdsahUfEqITfhKVBoCGOgQAvD_BwE)
